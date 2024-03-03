@@ -1,10 +1,10 @@
 node {
     stage('Checkout') {
-      git url: 'C:\\Software\\repos\\SimpleGreeting.git'
+      git url: 'C:\\jenkinslabs\\vulabrepos\\vulab-simple-java-app'
     }
 
-    stage('Gradle build') {
-      bat 'gradle build -x test'
+    stage('Maven build') {
+      bat 'mvn clean install'
     }
     
 	stage('User Acceptance Test') {
@@ -14,8 +14,8 @@ node {
 	   description: '', name: 'Pass')]
 	
 	  if(response=="Yes") {
-	    stage('Deploy') {
-	      bat 'gradle build -x test'
+	    stage('Package App') {
+	      bat 'mvn package'
 	    }
 	  }
 }	    
