@@ -4,7 +4,7 @@ node {
     }
 
     stage('Maven build') {
-      bat 'mvn clean install'
+      sh 'mvn clean install'
     }
     
 	stage('User Acceptance Test') {
@@ -15,7 +15,7 @@ node {
 	
 	  if(response=="Yes") {
 	    stage('Package App') {
-	      bat 'mvn package'
+	      sh 'mvn package'
 	    }
 	  }
 }	    
