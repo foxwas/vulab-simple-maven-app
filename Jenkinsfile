@@ -1,10 +1,10 @@
 node {
     stage('Checkout') {
-      git url: 'C:\\jenkinslabs\\vulabrepos\\vulab-simple-java-app'
+      git url: '/opt/vulab/localrepos/vulab-simple-maven-app'
     }
 
     stage('Maven build') {
-      sh 'mvn clean install'
+      sh 'mvn clean build'
     }
     
 	stage('User Acceptance Test') {
